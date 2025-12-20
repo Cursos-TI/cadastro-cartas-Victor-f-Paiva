@@ -9,45 +9,57 @@ int main() {
   char estado1[10], estado2[10], codigoDaCarta1[10], codigoDaCarta2[10], cidade1[20], cidade2[20];
   int populacao1, populacao2, pontoTuristico1, pontoTuristico2;
   float area1, area2, pib1, pib2;
-
+  float densidadePopulacional1, densidadePopulacional2;
+  float pibPerCapta1, pibPerCapta2;
 
   // Área para entrada de dados
   printf("===== PREENCHA 2 CARTAS =====:\n\n");
 
   // Dados de entrada da carta 1
   printf("\n\n== CARTA 1 ==\n");
-  printf("Digite o nome da CIDADE. NÃO use cidades que tenha mais de uma palavra!: \n");
-  scanf("%19s", cidade1);
   printf("Digite a sigla do ESTADO da federação em que fica localizado a cidade.\n");
-  scanf("%9s", estado1);
+  fgets(estado1, sizeof(estado1), stdin);
   printf("Digite o CÓDIGO DA CARTA (3 caracteres, exemplo: A01, B02,...): \n");
   scanf("%9s", codigoDaCarta1);
+  getchar(); //para limpar o buffer do scanf para o proximo fgets
+  printf("Digite o nome da CIDADE: \n");
+  fgets(cidade1, sizeof(cidade1), stdin);
   printf("Digite a POPULAÇÃO da cidade (número inteiro, exemplo: 50000): \n");
   scanf("%d", &populacao1);
   printf("Digite a ÁREA da cidade (número real, exemplo: 123.345): \n");
   scanf("%f", &area1);
-  printf("Digite o PIB da cidade (número real, exemplo: 12345.67): \n");
+  printf("Digite o PIB da cidade em BILHÕES(número real, exemplo: 12345.67 bilhoes): \n");
   scanf("%f", &pib1);
   printf("Digite a QUANTIDADE DE PONTOS TURÍSTICOS da cidade (número inteiro): \n");
   scanf("%d", &pontoTuristico1);
+  getchar(); //para limpar o buffer do scanf para o proximo fgets
   
   // Dados de entrada da carta 2
   printf("== CARTA 2 ==\n");
-  printf("Digite o nome da CIDADE. NÃO use cidades que tenha mais de uma palavra!: \n");
-  scanf("%19s", cidade2);
   printf("Digite a sigla do ESTADO da federação em que fica localizado a cidade.\n");
-  scanf("%9s", estado2);
+  fgets(estado2, sizeof(estado2), stdin);
   printf("Digite o CÓDIGO DA CARTA (3 caracteres, exemplo: A01, B02,...): \n");
   scanf("%9s", codigoDaCarta2);
+  getchar(); //para limpar o buffer do scanf para o proximo fgets
+  printf("Digite o nome da CIDADE: \n");
+  fgets(cidade2, sizeof(cidade2), stdin);
   printf("Digite a POPULAÇÃO da cidade (número inteiro, exemplo: 50000): \n");
   scanf("%d", &populacao2);
   printf("Digite a ÁREA da cidade (número real, exemplo: 123.345): \n");
   scanf("%f", &area2);
-  printf("Digite o PIB da cidade (número real, exemplo: 12345.67): \n");
+  printf("Digite o PIB da cidade em BILHÕES(número real, exemplo: 12345.67 bilhoes): \n");
   scanf("%f", &pib2);
   printf("Digite a QUANTIDADE DE PONTOS TURÍSTICOS da cidade (número inteiro): \n");
   scanf("%d", &pontoTuristico2);
+  getchar(); //para limpar o buffer do scanf
 
+  //processamento dos dados
+  //densidade poplacional
+  densidadePopulacional1 = populacao1 / area1;
+  densidadePopulacional2 = populacao2 / area2;
+  //PIB per capta
+  pibPerCapta1 = (pib1*1000000000) / (float)populacao1;
+  pibPerCapta2 = (pib2*1000000000) / (float)populacao2;
 
   // Área para exibição dos dados da cidade
   //impressão da carta 1 e 2
@@ -59,7 +71,9 @@ int main() {
   printf("Área: %.2f km²\n", area1);
   printf("PIB: R$ %.2f \n", pib1);
   printf("Numero de pontos Turisticos: %d\n", pontoTuristico1);
-
+  printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional1);
+  printf("PIB per Capita: %.2f reais\n", pibPerCapta1);
+  
   printf("\n\nCARTA 2:\n");
   printf("Estado: %s\n", estado2);
   printf("Código: %s\n", codigoDaCarta2);
@@ -68,7 +82,9 @@ int main() {
   printf("Área: %.2f km²\n", area2);
   printf("PIB: R$ %.2f \n", pib2);
   printf("Numero de pontos Turisticos: %d\n", pontoTuristico2);
-
-
+  printf("Densidade Populacional: %.2f hab/km²\n", densidadePopulacional2);
+  printf("PIB per Capita: %.2f reais\n", pibPerCapta2);
+  
+  
 return 0;
 } 
