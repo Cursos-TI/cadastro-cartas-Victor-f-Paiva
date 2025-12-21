@@ -12,6 +12,7 @@ int main() {
   float area1, area2, pib1, pib2;
   float densidadePopulacional1, densidadePopulacional2;
   float pibPerCapta1, pibPerCapta2;
+  float superPoder1, superPoder2;
 
   // Área para entrada de dados
   printf("===== PREENCHA 2 CARTAS =====:\n\n");
@@ -61,6 +62,13 @@ int main() {
   //PIB per capta
   pibPerCapta1 = (pib1*1000000000) / (float)populacao1;
   pibPerCapta2 = (pib2*1000000000) / (float)populacao2;
+  /*
+  super poder é a soma de todos os atributos numéricos 
+  (população, área, PIB, número de pontos turísticos, PIB per capita e 
+  o inverso da densidade populacional – quanto menor a densidade, maior o "poder")
+  */
+  superPoder1 = (float)populacao1 + area1 + pib1 + (float)pontoTuristico1 + pibPerCapta1 - densidadePopulacional1;
+  superPoder2 = (float)populacao2 + area2 + pib2 + (float)pontoTuristico2 + pibPerCapta2 - densidadePopulacional2;
 
   // Área para exibição dos dados da cidade
   //impressão da carta 1 e 2
