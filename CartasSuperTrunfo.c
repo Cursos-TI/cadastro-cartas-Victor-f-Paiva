@@ -17,45 +17,57 @@ int main() {
   // Área para entrada de dados
   printf("===== PREENCHA 2 CARTAS =====:\n\n");
 
-  // Dados de entrada da carta 1
+  // DADOS DE ENTRADA DA CARTA 1
   printf("\n\n== CARTA 1 ==\n");
   printf("Digite a sigla do ESTADO da federação em que fica localizado a cidade.\n");
   fgets(estado1, sizeof(estado1), stdin);
+
   printf("Digite o CÓDIGO DA CARTA (3 caracteres, exemplo: A01, B02,...): \n");
   scanf("%9s", codigoDaCarta1);
   getchar(); //para limpar o buffer do scanf para o proximo fgets
+
   printf("Digite o nome da CIDADE: \n");
   fgets(cidade1, sizeof(cidade1), stdin);
+
   printf("Digite a POPULAÇÃO da cidade (número inteiro, exemplo: 50000): \n");
   scanf("%lu", &populacao1);
+
   printf("Digite a ÁREA da cidade (número real, exemplo: 123.345): \n");
   scanf("%f", &area1);
+
   printf("Digite o PIB da cidade em BILHÕES(número real, exemplo: 12345.67 bilhoes): \n");
   scanf("%f", &pib1);
+
   printf("Digite a QUANTIDADE DE PONTOS TURÍSTICOS da cidade (número inteiro): \n");
   scanf("%d", &pontoTuristico1);
   getchar(); //para limpar o buffer do scanf para o proximo fgets
   
-  // Dados de entrada da carta 2
+  // DADOS DE ENTRADA DA CARTA 2
   printf("\n\n== CARTA 2 ==\n");
   printf("Digite a sigla do ESTADO da federação em que fica localizado a cidade.\n");
   fgets(estado2, sizeof(estado2), stdin);
+
   printf("Digite o CÓDIGO DA CARTA (3 caracteres, exemplo: A01, B02,...): \n");
   scanf("%9s", codigoDaCarta2);
   getchar(); //para limpar o buffer do scanf para o proximo fgets
+
   printf("Digite o nome da CIDADE: \n");
   fgets(cidade2, sizeof(cidade2), stdin);
+
   printf("Digite a POPULAÇÃO da cidade (número inteiro, exemplo: 50000): \n");
   scanf("%lu", &populacao2);
+
   printf("Digite a ÁREA da cidade (número real, exemplo: 123.345): \n");
   scanf("%f", &area2);
+
   printf("Digite o PIB da cidade em BILHÕES(número real, exemplo: 12345.67 bilhoes): \n");
   scanf("%f", &pib2);
+
   printf("Digite a QUANTIDADE DE PONTOS TURÍSTICOS da cidade (número inteiro): \n");
   scanf("%d", &pontoTuristico2);
   getchar(); //para limpar o buffer do scanf
 
-  //processamento dos dados
+  //PROCESSAMENTO DE DADOS
   //densidade poplacional
   densidadePopulacional1 = populacao1 / area1;
   densidadePopulacional2 = populacao2 / area2;
@@ -72,8 +84,7 @@ int main() {
   superPoder1 = (float)populacao1 + area1 + pib1 + (float)pontoTuristico1 + pibPerCapta1 - densidadePopulacional1;
   superPoder2 = (float)populacao2 + area2 + pib2 + (float)pontoTuristico2 + pibPerCapta2 - densidadePopulacional2;
 
-  // Área para exibição dos dados da cidade
-  //impressão da carta 1 e 2
+  // DADOS IMPRESSOS DAS CARTAS
   printf("\n\nCARTA 1:\n");
   printf("Estado: %s\n", estado1);
   printf("Código: %s\n", codigoDaCarta1);
